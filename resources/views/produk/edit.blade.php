@@ -8,7 +8,7 @@
         <div class="page-heading">
             <div>
                 <span class="eyebrow">Pengelolaan produk</span>
-                <h1>Edit Produk</h1>
+                <h1 style="color: black">Edit Produk</h1>
             </div>
         </div>
 
