@@ -42,4 +42,3 @@ Tanggal: 21-09-2026
 
 # serkom_test
 website kopi ulee kareng untuk kegiatan serkom
-ab9345d606e9b3d7cd8b50732adb4c4192f1cf36
