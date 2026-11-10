@@ -1,3 +1,4 @@
+
 # Kopi Ulee Kareng
 
 Landing page dan CRUD produk menggunakan Laravel 12.
@@ -38,3 +39,7 @@ Jalankan `php artisan test`.
 Nama peserta: Muhammad Furqan
 Kelas: XII - RPL 3
 Tanggal: 21-09-2026
+
+# serkom_test
+website kopi ulee kareng untuk kegiatan serkom
+ab9345d606e9b3d7cd8b50732adb4c4192f1cf36
