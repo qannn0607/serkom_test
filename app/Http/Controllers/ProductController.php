@@ -6,7 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Storage; // Tambahkan ini untuk mengelola file
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -42,9 +42,7 @@ class ProductController extends Controller
             $this->validationMessages()
         );
 
-        // Logika upload gambar
         if ($request->hasFile('gambar')) {
-            // Simpan gambar ke folder storage/app/public/produk
             $validated['gambar'] = $request->file('gambar')->store('produk', 'public');
         }
 
@@ -93,7 +91,6 @@ class ProductController extends Controller
 
     public function destroy(Product $produk): RedirectResponse
     {
-        // Hapus file gambar dari storage sebelum produk dihapus dari database
         if ($produk->gambar) {
             Storage::disk('public')->delete($produk->gambar);
         }
@@ -114,7 +111,6 @@ class ProductController extends Controller
             'harga.required' => 'Harga wajib diisi.',
             'harga.integer' => 'Harga harus berupa bilangan bulat.',
             'harga.min' => 'Harga tidak boleh negatif.',
-            // Pesan error khusus gambar
             'gambar.image' => 'File harus berupa gambar.',
             'gambar.mimes' => 'Format gambar harus jpeg, png, jpg, atau webp.',
             'gambar.max' => 'Ukuran gambar maksimal 2MB.',
