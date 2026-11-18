@@ -1,4 +1,18 @@
 <div class="form-group">
+    <label for="kode_produk">Kode produk</label>
+    <input
+        id="kode_produk"
+        name="kode_produk"
+        type="text"
+        value="{{ old('kode_produk', $produk->kode_produk ?? '') }}"
+        class="form-control @error('kode_produk') is-invalid @enderror"
+    >
+    @error('kode_produk')
+        <small class="error">{{ $message }}</small>
+    @enderror
+</div>
+
+<div class="form-group">
     <label for="nama_produk">Nama produk</label>
     <input
         id="nama_produk"

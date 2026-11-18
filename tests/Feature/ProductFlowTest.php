@@ -25,6 +25,7 @@ class ProductFlowTest extends TestCase
             'deskripsi' => 'Produk untuk pengujian.',
             'harga' => 20000,
             'gambar' => null,
+            'kode_produk' => 'KOPI-TEST-001',
         ]);
 
         $response->assertRedirect(route('produk.index'));

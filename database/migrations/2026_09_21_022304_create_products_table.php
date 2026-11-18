@@ -14,6 +14,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->unsignedInteger('harga');
             $table->string('gambar')->nullable();
+            $table->string('kode_produk', 50)->unique();
             $table->timestamps();
         });
     }

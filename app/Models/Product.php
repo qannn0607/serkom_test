@@ -14,6 +14,7 @@ class Product extends Model
         'deskripsi',
         'harga',
         'gambar',
+        'kode_produk',
     ];
 
     protected function casts(): array

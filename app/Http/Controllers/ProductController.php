@@ -38,6 +38,7 @@ class ProductController extends Controller
                 'harga' => ['required', 'integer', 'min:0'],
                 // Ubah validasi gambar
                 'gambar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
+                'kode_produk' => ['required', 'string', 'max:50', 'unique:products,kode_produk'],
             ],
             $this->validationMessages()
         );
@@ -67,6 +68,7 @@ class ProductController extends Controller
                 'harga' => ['required', 'integer', 'min:0'],
                 // Ubah validasi gambar
                 'gambar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
+                'kode_produk' => ['required', 'string', 'max:50', 'unique:products,kode_produk,' . $produk->id],
             ],
             $this->validationMessages()
         );

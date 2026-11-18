@@ -32,6 +32,7 @@
                         <th>Nama</th>
                         <th>Harga</th>
                         <th>Gambar</th>
+                        <th>Kode Produk</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -59,6 +60,7 @@
                                         style="width: 70px; height: 70px; object-fit: cover; border-radius: 8px;">
                                 @endif
                             </td>
+                            <td>{{ $produk->kode_produk }}</td>
                             <td>
                                 <div class="actions">
                                     <a class="btn btn-small btn-edit" href="{{ route('produk.edit', $produk) }}">
@@ -76,7 +78,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="empty-state">
+                            <td colspan="6" class="empty-state">
                                 Belum ada produk.
                             </td>
                         </tr>
