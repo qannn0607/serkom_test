@@ -10,11 +10,11 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
+        'kode_produk',
         'nama_produk',
         'deskripsi',
         'harga',
         'gambar',
-        'kode_produk',
     ];
 
     protected function casts(): array

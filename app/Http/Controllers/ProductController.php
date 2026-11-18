@@ -33,12 +33,12 @@ class ProductController extends Controller
     {
         $validated = $request->validate(
             [
+                'kode_produk' => ['required', 'string', 'max:50', 'unique:products,kode_produk'],
                 'nama_produk' => ['required', 'string', 'max:100'],
                 'deskripsi' => ['required', 'string'],
                 'harga' => ['required', 'integer', 'min:0'],
                 // Ubah validasi gambar
                 'gambar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
-                'kode_produk' => ['required', 'string', 'max:50', 'unique:products,kode_produk'],
             ],
             $this->validationMessages()
         );
