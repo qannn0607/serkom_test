@@ -66,15 +66,27 @@
                                     <a class="btn btn-small btn-edit" href="{{ route('produk.edit', $produk) }}">
                                         Edit
                                     </a>
-                                    <form method="POST" action="{{ route('produk.destroy', $produk) }}" onsubmit="return confirm('Hapus produk ini?')">
+                                    <form method="POST" action="{{ route('produk.destroy', $produk) }}" class="form-hapus">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-small btn-danger" type="submit">
+                                        
+                                        <button class="btn btn-small btn-danger btn-trigger-hapus" type="button">
                                             Hapus
                                         </button>
+
+                                        <div class="modal-overlay">
+                                            <div class="modal-box">
+                                                <h3>Hapus Produk?</h3>
+                                                <p>Produk yang sudah dihapus tidak dapat dikembalikan lagi. Yakin ingin melanjutkan?</p>
+                                                <div class="modal-actions">
+                                                    <button type="button" class="btn btn-secondary btn-batal">Batal</button>
+                                                    <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
-                            </td>                        
+                            </td>
                         </tr>
                     @empty
                         <tr>
@@ -88,4 +100,23 @@
         </div>
     </div>
 </main>
+
+<script>
+    document.querySelectorAll('.form-hapus').forEach(form => {
+        const triggerBtn = form.querySelector('.btn-trigger-hapus');
+        const modal = form.querySelector('.modal-overlay');
+        const cancelBtn = form.querySelector('.btn-batal');
+
+        // Klik tombol Hapus di dalam td -> munculkan notif
+        triggerBtn.addEventListener('click', () => modal.classList.add('show'));
+
+        // Klik Batal -> tutup notif
+        cancelBtn.addEventListener('click', () => modal.classList.remove('show'));
+
+        // Klik area luar kotak -> tutup notif
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('show');
+        });
+    });
+</script>
 @endsection
